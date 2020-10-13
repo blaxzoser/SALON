@@ -1,0 +1,76 @@
+﻿<Window x:Class="SALON.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SALON"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="SPA 1.0"
+        Height="850"
+        Width="800">
+    <Grid>
+     
+
+                <Grid.ColumnDefinitions>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition ></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <materialDesign:ColorZone     Mode="PrimaryDark"
+                                      Padding="16"
+                                      CornerRadius="3"
+                                      materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                                      Margin="2">   
+            <StackPanel  Orientation="Horizontal" Grid.Column="0" Grid.Row="0">
+                <ToggleButton Style="{DynamicResource MaterialDesignHamburgerToggleButton}" />
+                <TextBlock VerticalAlignment="Center" Margin="16 0 0 0">
+                   SISTEMA DE PAGOS DE ALUMNOS 1.0
+                </TextBlock>
+            </StackPanel>
+</materialDesign:ColorZone>
+        <StackPanel Width="600"   Margin="20"  Grid.Row="1"  Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"  Orientation="Horizontal" >
+            <Button x:Name="ShowTeachers"
+                     Margin="10 0 0 0"
+                    Style="{StaticResource MaterialDesignFloatingActionDarkButton}"
+                    ToolTip="Maestros">
+                <materialDesign:PackIcon Kind="HumanGreeting" Height="24" Width="24" />
+            </Button>
+            <Button Margin="10 0 0 0"
+                    Style="{StaticResource MaterialDesignFloatingActionDarkButton}"
+                    ToolTip="Alumnos">
+                <materialDesign:PackIcon Kind="Accounts" Height="24" Width="24" />
+            </Button>
+            <Button Margin="10 0 0 0"
+                    Style="{StaticResource MaterialDesignFloatingActionDarkButton}"
+                    ToolTip="Pagos">
+                <materialDesign:PackIcon Kind="Payment" Height="24" Width="24" />
+            </Button>
+            <Button Margin="10 0 0 0"
+                    Style="{StaticResource MaterialDesignFloatingActionDarkButton}"
+                    ToolTip="Clases">
+                <materialDesign:PackIcon Kind="Teaching" Height="24" Width="24" />
+            </Button>
+            <Button Margin="10 0 0 0"
+                    Style="{StaticResource MaterialDesignFloatingActionDarkButton}"
+                    ToolTip="Calendario">
+                <materialDesign:PackIcon Kind="Calendar" Height="24" Width="24" />
+            </Button>
+        </StackPanel>
+
+        <ContentControl x:Name="ActiveItem" Grid.Row="2" Grid.Column="0" />
+        
+        <materialDesign:Snackbar  Grid.Row="3" 
+                                  Grid.Column="0" 
+                                  Message="{Binding Message}" 
+                                  IsActive="{Binding IsShowMessage}" 
+                                  x:Name="SnackbarOne" />
+
+    </Grid>
+</Window>
